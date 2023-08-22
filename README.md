@@ -70,4 +70,5 @@ npm run dev
 ```
 It will run the application at <code>localhost:5173</code>. The logo of the app is linked to the home page <code>localhost:5173/</code>.
 
-<b>So, this is the way the application works. Thanks</b>
+### Enjoy the app. Thanks
+<b>If facing any issue regarding the setup please contact <code>asifkhan.github@gmail.com</code></b>
