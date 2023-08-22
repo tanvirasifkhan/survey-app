@@ -9,20 +9,19 @@ This project is basically a Quiz app. It consists roles of admin and candicate. 
 
   
 
-Before using the system you need to install couple of softwares such as PHP >=8.0 , MySQL & Composer.
-For php & mysql go to https://www.apachefriends.org/ and download the xampp application for your system ( windows / linux/ mac ). Go to https://getcomposer.org/ for downloading composer. After installing the necessary softwares follow the instructions to make the application live.
+Before using the system you need to install couple of softwares such as PHP >=8.0 , MySQL, Composer and NodeJs.
+For php & mysql go to https://www.apachefriends.org/ and download the xampp application for your system ( windows / linux/ mac ). Go to https://getcomposer.org/ for downloading composer.Finally, go to https://nodejs.org/ for downloading nodejs. After installing the necessary softwares follow the instructions to make the application live.
 
   
 
 ## How to make the app live ?
-<b>Step # 1</b>
-Clone the git repository & cd into the <b>laravel-test-quiz-app</b> folder. Install composer inside it like the following.
+<b>Step # 1 Clone repository</b>
+Clone the git repository & cd into the <b>survey-app</b> folder. Inside <b>survey-app</b> folder there are two folders called <b>backend</b> and <b>web</b>.
   
 
 ```
-git clone https://github.com/tanvirasifkhan/laravel-test-quiz-app.git
-cd laravel-test-quiz-app
-composer install
+git clone https://github.com/tanvirasifkhan/survey-app.git
+cd survey-app
 ```
 
 <b>Step # 2</b>
