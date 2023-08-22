@@ -61,7 +61,7 @@ php artisan serve
 ```
 A default user will be created during this. Email : <code>tanvir@gmail.com</code> and Password: <code>tanvir</code> are the default user credentials. Application will run at <code>localhost:8000</code>.
 
-### Preparing the frontend
+## Preparing the frontend
 <b>Step # 1 Configuring frontend: </b>
 In this step just <code>cd web</code> into the <b>web</b> folder. After that, run <code>npm install</code> command. Run the following command.
 
