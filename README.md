@@ -3,19 +3,22 @@
 
   
 
-This project is basically a Quiz app. It consists roles of admin and candicate. Admin can login, create quiz test & approve / reject candidates. Candidate can register & participate any quiz test. Candidates have to be approved by admin to participate in any quiz test. 
+This project is basically an online suvey app. Users can register and login in their admin panel. After being 
+registered any user can create new survey and see responses against surveys. Can view and delete surveys and
+responses. Users will also be able to have some recent surveys and response statistics in the dashboard area.
+Any public can the surveys in the home page and submit a feedback. After feedback submission the survey author will be notified by sending email to his/her respective email.
 
 ## Necessary Softwares to install
 
   
 
 Before using the system you need to install couple of softwares such as PHP >=8.0 , MySQL, Composer and NodeJs.
-For php & mysql go to https://www.apachefriends.org/ and download the xampp application for your system ( windows / linux/ mac ). Go to https://getcomposer.org/ for downloading composer.Finally, go to https://nodejs.org/ for downloading nodejs. After installing the necessary softwares follow the instructions to make the application live.
+For php & mysql go to https://www.apachefriends.org/ and download the xampp application for your system ( windows / linux/ mac ). Go to https://getcomposer.org/ for downloading composer.Finally, go to https://nodejs.org/ for downloading nodejs. After installing the necessary softwares follow the instructions to make the application live. Create an account in https://mailtrap.io website for email sending purpose.
 
   
 
-## How to make the app live ?
-<b>Step # 1 Clone repository</b>
+## Preparing the API backend
+<b>Step # 1 Clone repository: </b>
 Clone the git repository & cd into the <b>survey-app</b> folder. Inside <b>survey-app</b> folder there are two folders called <b>backend</b> and <b>web</b>.
   
 
@@ -24,19 +27,30 @@ git clone https://github.com/tanvirasifkhan/survey-app.git
 cd survey-app
 ```
 
-<b>Step # 2</b>
-Create <code>.env</code> file and copy all the environment variables from  <code>.env.example</code> file to <code>.env</code>. After that change your database configuration and then create a database called <b>quiz</b>.
+<b>Step # 2 Configuring backend API: </b>
+In this step just <code>cd backend</code> into the <b>backend</b> folder. After that, run <code>composer install</code> command. Create <code>.env</code> file in the root folder. Copy <code>.env.example</code> file to <code>.env</code>. After that change your database configuration in the <code>.env</code> file like below and then create a database called <b>survey</b> in phpMyadmin panel by running xampp control panel. Hit <code>localhost/phpmyadmin</code> in the browser to access your database admin panel.
   
 
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=quiz
+DB_DATABASE=survey
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-<b>Step # 3</b>
+<b>Step # 3 Configuring Email Service: </b>
+After creating an account in https://mailtrap.io, create an inbox called <code>survey</code>. From the SMTP configuration tab select Laravel 9+ from the dropdown. Copy the configuration and paste into your <code>.env</code> file like below and replace the credentials.
+
+```
+MAIL_MAILER=smtp
+MAIL_HOST=<host>
+MAIL_PORT=<port>
+MAIL_USERNAME=<username>
+MAIL_PASSWORD=<passowrd>
+MAIL_ENCRYPTION=tls
+```
+<b>Step # 4 Configuring Laravel: </b>
 First generate security key then run the migration for creating tables and then run the application by following the below commands
   
 
@@ -45,24 +59,15 @@ php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
-  Congratulation , your application is live now :)
+A default user will be created during this. Email : <code>tanvir@gmail.com</code> and Password: <code>tanvir</code> are the default user credentials. Application will run at <code>localhost:8000</code>.
 
-### Creating default admin
-Run the following command to create the default admin with email : <b>admin@gmail.com</b> and password: <b>admin</b> credentials.
-  ```
-php artisan db:seed --class=DatabaseSeeder
+### Preparing the frontend
+<b>Step # 1 Configuring frontend: </b>
+In this step just <code>cd web</code> into the <b>web</b> folder. After that, run <code>npm install</code> command. Run the following command.
+
 ```
-Now you can login into the system as administrator.
-
-## How the application works ?
-
-<b># Admin Panel</b>
-
-Admin will login into the system. Admin can see the list of all the registered candidate list. Mark any candidate as  <b>approved/rejected</b>. Also admin can delete , edit, view detail of any candidate.
-Admin can create new quiz with question and options and view detail of any quiz. Admin has some dashboard statistics.
-
-<b># Candidate Panel</b>
-Candidate has to register first. Every candidate is registered with <code>pending</code> status. After getting registered candidate will be redirected to the login page with a success message.Note that , candidate will not be able to do anything if the status is <b>pending/rejected</b>. After getting approved by admin candidates 
-can do their stuffs such as quiz participation list ( quizes he participated ), take participate any quiz test. Basically candidate can choose any quiz test to participate. After participation candidate can see the result wheather he <b>passed/failed</b>. Candidate also has some dashboard statistics as well.
+npm run dev
+```
+It will run the application at <code>localhost:5173</code>. The logo of the app is linked to the home page <code>localhost:5173/</code>.
 
 <b>So, this is the way the application works. Thanks</b>
